@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Message = "Application Error";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<div>
+     <ol class="round">
+        <li class="exclaim">
+            <h5 class="error">Error Code: @ViewBag.ErrorCode</h5>            <h5>@ViewBag.ErrorMessage</h5>        </li>    </ol></div>
+<br>
+@using (Html.BeginForm("index", "home"))
+{
+    <hr/>
+    <input type="submit" id="btnReturn" value="Return to Main Page" />        
+}
+
+

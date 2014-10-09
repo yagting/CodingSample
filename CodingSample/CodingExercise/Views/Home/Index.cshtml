@@ -1,0 +1,58 @@
+﻿@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<div id="divOut">
+    <ol class="round">
+        <li class="information">
+            <h5>Getting Started</h5>
+            <p>
+            This application is a utility that is used to extract data from a Mongo Database and transfer it to a Sql Server Database. Click the "Start Export" button below to kick-start the processing.
+            </p>
+
+            <p>
+                <input type="button" id="btnStartProcess" value="Start Export" />      
+            </p>
+        </li>
+    </ol>
+</div>
+
+<div id="progress" class="Progress Transparent">
+    <span class="ProgressMesage">Processing. please wait...</span>
+    <div class="ProgressBar">
+        <img src="~/Images/ajax-loader.gif" alt="" />
+    </div>
+</div>
+
+@section scripts {
+    <section>        
+         <script type="text/javascript">
+
+                 $("#btnStartProcess").click(function (e) {
+                     e.preventDefault();
+                     $("#btnStartProcess").attr("disabled", true);
+                     $("#progress").show();
+
+                     $.ajax("/Home/Export")
+                      .done(function (data) {
+                          $("#divOut").html(data);
+                      })
+                      .fail(function () {
+                          window.location.replace("/Error/index");
+                      })
+                      .always(function () {
+                          $("#btnStartProcess").attr("disabled", false);
+                          $("#progress").hide();
+                      });
+                 });
+
+        </script>
+
+    </section>
+}

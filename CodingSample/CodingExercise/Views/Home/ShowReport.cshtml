@@ -1,0 +1,68 @@
+﻿@model CodingExercise.Models.ReportBatch
+
+@{
+    Layout = null;
+}
+
+<ol class="round">
+     <li class="information">
+        <h5>Processing Result</h5>
+    </li>
+</ol>
+<hr />
+    
+<fieldset>
+    <legend></legend>
+
+    <div class="ExportResult">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RunDate)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.RunDate, new { @readonly = "readonly", disabled = "disabled" })
+        </div>
+    </div>
+
+    <div class="ExportResult">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TotalDocumentRead)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.TotalDocumentRead, new { @readonly = "readonly", disabled = "disabled" })
+        </div>
+    </div>
+
+    <div class="ExportResult">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TotalDeveloperWritten)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.TotalDeveloperWritten, new { @readonly = "readonly", disabled = "disabled" })
+        </div>
+    </div>
+
+    <div class="ExportResult">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TotalAwardWritten)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.TotalAwardWritten, new { @readonly = "readonly", disabled = "disabled" })
+        </div>
+    </div>
+
+    <div class="ExportResult">
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TotalContribsWritten)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.TotalContribsWritten, new { @readonly = "readonly", disabled = "disabled" })
+        </div>
+    </div>
+</fieldset>
+<hr/>
+@using (Html.BeginForm("index", "home"))
+{   
+    <input type="submit" id="btnReturn" value="Return to Main Page" />        
+}
+
+
